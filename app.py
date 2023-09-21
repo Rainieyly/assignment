@@ -556,7 +556,7 @@ def adminRegister():
     return render_template('adminRegister.html')
 
     @app.route('/admin-dashboard')
-    def admin_dashboard():
+    def admin-dashboard():
         return render_template('admin-dashboard.html')
 
 @app.route('/approve-company', methods=['POST'])
