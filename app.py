@@ -563,6 +563,7 @@ def admin_dashboard():
     with db_conn.cursor() as cursor:
         cursor.execute("SELECT compName, status FROM company")
         companies = cursor.fetchall()
+        cursor.close()
 
     return render_template('admin-dashboard.html', companies=companies)
 
