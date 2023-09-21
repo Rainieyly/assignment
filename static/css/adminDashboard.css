@@ -8,38 +8,20 @@
     margin-bottom: 10px;
 }
 
-/* Style for the table */
-.company-data table {
-    width: 100%;
-    border-collapse: collapse;
+/* Style for the company list */
+.company-data ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.company-data th, .company-data td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.company-data li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
 }
 
-.company-data th {
-    background-color: #f2f2f2;
-}
-
-/* Style for table header */
-.company-data th {
+/* Style for company name and status */
+.company-data li strong {
     font-weight: bold;
-}
-
-/* Style for table rows */
-.company-data tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Style for table rows on hover */
-.company-data tr:hover {
-    background-color: #ddd;
-}
-
-/* Add a bit of spacing between the table cells */
-.company-data td {
-    padding: 10px;
+    display: inline-block;
+    width: 150px;
 }
