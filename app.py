@@ -568,7 +568,7 @@ def admin_dashboard():
     return render_template('adminDashboard.html', companies=companies)
 
 @app.route('/approve_companies')
-def admin_dashboard():
+def approve_companies():
     return render_template('approve.html')
 
 @app.route('/approve-company', methods=['POST'])
