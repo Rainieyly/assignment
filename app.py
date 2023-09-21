@@ -209,7 +209,7 @@ def login():
 
                 if password == stored_password:
                     # Passwords match, user is authenticated
-                    return render_template('admin-dashboard.html', user_login_name=name, studentID=None, user_authenticated=True)
+                    return render_template('adminDashboard.html', user_login_name=name, studentID=None, user_authenticated=True)
                 else:
                     return render_template('login.html', pwd_error="Incorrect password. Please try again.")
             else:
