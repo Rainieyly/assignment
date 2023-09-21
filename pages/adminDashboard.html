@@ -138,12 +138,16 @@
 
 					<div class="report-items">
                         {% for company in companies %}
+						<p>Data is present: </p>
                         <div class="report-item">
                             <p class="t-op">{{ company['compID'] }}</p>
 							<p class="t-op">{{ company['compName'] }}</p>
 							<p class="t-op">{{ company['compStatus'] }}</p>
                         </div>
                         {% endfor %}
+					{% else %}
+						<p>No data available.</p>
+					{% endif %}
                     </div>
 			</div>
 		</div>
