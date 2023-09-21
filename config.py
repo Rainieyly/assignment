@@ -4,5 +4,3 @@ custompass = "abcd1234"
 customdb = "itps"
 custombucket = "ongjingrou-itps"
 customregion = "us-east-1"
-
-## 
