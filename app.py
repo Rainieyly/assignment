@@ -563,6 +563,7 @@ def admin_dashboard():
     companies = cursor.fetchall()
     cursor.close()
 
+    print(companies)
     return render_template('adminDashboard.html', companies=companies)
 
 
