@@ -129,20 +129,22 @@
 					<button class="view">View All</button>
 				</div>
 
-				<div class="company-data">
-					<ul>
-						<li>
-							<strong>Company Name</strong>
-							<strong>Status</strong>
-						</li>
-						{% for company in companies %}
-						<li>
-							{{ companies.compName }}
-							{{ companies.compStatus }}
-						</li>
-						{% endfor %}
-					</ul>
-				</div>
+				<div class="report-body">
+                    <div class="report-topic-heading">
+                        <h3 class="t-op">Company ID</h3>
+                        <h3 class="t-op">Company Name</h3>
+                        <h3 class="t-op">Status</h3>
+                    </div>
+
+					<div class="report-items">
+                        {% for company in companies %}
+                        <div class="report-item">
+                            <p class="t-op">{{ company['compID'] }}</p>
+							<p class="t-op">{{ company['compName'] }}</p>
+							<p class="t-op">{{ company['compStatus'] }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
 			</div>
 		</div>
 	</div>
