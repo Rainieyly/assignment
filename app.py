@@ -565,7 +565,7 @@ def admin_dashboard():
         companies = cursor.fetchall()
         cursor.close()
 
-    return render_template('admin-dashboard.html', companies=companies)
+    return render_template('adminDashboard.html', companies=companies)
 
 @app.route('/approve-company', methods=['POST'])
 def approve_company():
