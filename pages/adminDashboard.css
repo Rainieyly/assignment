@@ -1,0 +1,45 @@
+/* Style for the "Company Data" section */
+.company-data {
+    margin-top: 20px;
+}
+
+.company-data h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style for the table */
+.company-data table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.company-data th, .company-data td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.company-data th {
+    background-color: #f2f2f2;
+}
+
+/* Style for table header */
+.company-data th {
+    font-weight: bold;
+}
+
+/* Style for table rows */
+.company-data tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for table rows on hover */
+.company-data tr:hover {
+    background-color: #ddd;
+}
+
+/* Add a bit of spacing between the table cells */
+.company-data td {
+    padding: 10px;
+}
