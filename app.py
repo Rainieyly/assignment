@@ -555,7 +555,7 @@ def adminRegister():
 
     return render_template('adminRegister.html')
 
-    @app.route('/admin_dashboard')
+@app.route('/admin_dashboard')
     def admin_dashboard():
         return render_template('admin_dashboard.html')
 
