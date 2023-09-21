@@ -561,11 +561,15 @@ def admin_dashboard():
 
     # Now, retrieve company data and pass it to the template
     with db_conn.cursor() as cursor:
-        cursor.execute("SELECT compName, status FROM company")
+        cursor.execute("SELECT compName, compStatus FROM company")
         companies = cursor.fetchall()
         cursor.close()
 
     return render_template('adminDashboard.html', companies=companies)
+
+@app.route('/approve_companies')
+def admin_dashboard():
+    return render_template('approve.html')
 
 @app.route('/approve-company', methods=['POST'])
 def approve_company():
