@@ -571,6 +571,14 @@ def admin_dashboard():
 def approve_companies():
     return render_template('approve.html')
 
+@app.route('/list_companies')
+def approve_companies():
+    return render_template('listCompanies.html')
+
+@app.route('/user_management')
+def approve_companies():
+    return render_template('userManagement.html')
+
 @app.route('/approve-company', methods=['POST'])
 def approve_company():
     data = request.json  # Assuming you send JSON data with company_name
