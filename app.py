@@ -557,14 +557,6 @@ def adminRegister():
 
     @app.route('/admin-dashboard')
     def admin_dashboard():
-        # Your existing code for rendering the admin dashboard
-
-        # Now, retrieve company data and pass it to the template
-        with db_conn.cursor() as cursor:
-            cursor.execute("SELECT compName, status FROM company")
-            companies = cursor.fetchall()
-            cursor.close()
-
         return render_template('admin-dashboard.html', companies=companies)
 
 @app.route('/approve-company', methods=['POST'])
