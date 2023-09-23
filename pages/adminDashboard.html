@@ -9,7 +9,7 @@
 	<title>Job Flnder</title>
 	<link rel="stylesheet" href="../static/css/dashboard-style.css">
 	<link rel="stylesheet" href="../static/css/dashbaord-responsive.css">
-	<!-- link rel="stylesheet" href="../static/css/adminDashboard.css"-->
+	<link rel="stylesheet" href="../static/css/adminDashboard.css">
 </head>
 
 <body>
@@ -140,9 +140,7 @@
 						{% if companies %}
 							{% for company in companies %}
 								<div class="report-item">
-									<p class="t-op">{{ company[0] }}</p>
-									<p class="t-op">{{ company[1] }}</p>
-									<p class="t-op">{{ company[2] }}</p>
+									<p class="t-op">{{ company }}</p>
 								</div>
 							{% endfor %}
 						{% else %}
