@@ -140,9 +140,9 @@
 						{% if companies %}
 							{% for company in companies %}
 								<div class="report-item">
-									<p class="t-op">{{ company['compID'] }}</p>
-									<p class="t-op">{{ company['compName'] }}</p>
-									<p class="t-op">{{ company['compStatus'] }}</p>
+									<p class="t-op">{{ company['compID'][0] }}</p>
+									<p class="t-op">{{ company['compName'][0] }}</p>
+									<p class="t-op">{{ company['compStatus'][0] }}</p>
 								</div>
 							{% endfor %}
 						{% else %}
