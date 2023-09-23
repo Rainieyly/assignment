@@ -590,7 +590,12 @@ def adminRegister():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    return render_template('adminDashboard.html')
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
+    companies = cursor.fetchall()
+    cursor.close()
+
+    return render_template('adminDashboard.html', companies=companies)
 
 @app.route('/approve_companies')
 def approve_companies():
