@@ -209,7 +209,10 @@ def login():
 
                 if password == stored_password:
                     # Passwords match, user is authenticated
-                    return render_template('adminDashboard.html', user_login_name=name, studentID=None, user_authenticated=True)
+                    cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
+                    companies = cursor.fetchall()
+
+                    return render_template('adminDashboard.html', companies=companies)
                 else:
                     return render_template('login.html', pwd_error="Incorrect password. Please try again.")
             else:
@@ -589,8 +592,6 @@ def adminRegister():
 def admin_dashboard():
     # Now, retrieve company data and pass it to the template
     cursor = db_conn.cursor()
-    cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
-    companies = cursor.fetchall()
     cursor.close()
 
     print(companies)
