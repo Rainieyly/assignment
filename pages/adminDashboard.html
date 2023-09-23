@@ -140,8 +140,9 @@
 						{% if companies %}
 							{% for company in companies %}
 								<div class="report-item">
-									<p class="t-op">{{ company }}</p>
-								</div>
+									<p class="t-op">{{ company.compID }}</p>
+                                    <p class="t-op">{{ company.compName }}</p>
+                                    <p class="t-op">{{ company.compStatus }}</p>
 							{% endfor %}
 						{% else %}
 							<p>No data available.</p>
