@@ -100,8 +100,10 @@
                 <ul>
                     <li>
                         <div class="company-info">
-                            <h2>Company Name 1</h2>
-                            <p>Company Email</p>
+							{% for company in companies %}
+                            <h2>{{ company[0] }}</h2>
+                            <p>{{ company[1] }}</p>
+							{% endfor %}
                         </div>
                         <div class="action-buttons">
                             <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
