@@ -94,11 +94,10 @@
 				<div class="box box1">
 					<div class="text">
 
-						{% set registeredCount = 0 %}
-						{% set pendingCount = 0 %}
-						{% set rejectedCount = 0 %}
-
 						{% for company in companies %}
+							{% set registeredCount = 0 %}
+							{% set pendingCount = 0 %}
+							{% set rejectedCount = 0 %}
 							{% if company[3] == 'APPROVED' %}
 								{% set registeredCount = registeredCount + 1 %}
 							{% elif company[3] == 'pending' %}
