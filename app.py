@@ -555,7 +555,7 @@ def adminRegister():
 
     return render_template('adminRegister.html')
 
-@app.route('/admin_dashboard')
+@app.route('/admin_dashboard', methods=['GET'])
 def admin_dashboard():
     # Now, retrieve company data and pass it to the template
     cursor = db_conn.cursor()
