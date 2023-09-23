@@ -94,9 +94,6 @@
 			{% set rejectedCount = 0 %}
 
 			{% for company in companies %}
-				<!-- Add this line to print the status value for each company -->
-				<p>Status: {{ company[3] }}</p>
-
 				{% if company[3] == 'APPROVED' %}
 					{% set registeredCount = registeredCount + 1 %}
 				{% elif company[3] == 'PENDING' %}
