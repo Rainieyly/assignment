@@ -606,7 +606,7 @@ def approve_companies():
         # Check the value of 'action' and update the company status accordingly
         if action == 'Approve':
             new_status = 'APPROVED'
-        elif action == 'Rejecte':
+        elif action == 'Reject':
             new_status = 'REJECTED'
         else:
             return jsonify({"error": "Invalid action"}), 400
