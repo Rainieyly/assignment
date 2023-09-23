@@ -89,6 +89,9 @@
 						class="icn srchicn" alt="search-button">
 				</div>
 			</div>
+			{% set registeredCount = 0 %}
+			{% set pendingCount = 0 %}
+			{% set rejectedCount = 0 %}
 
 			{% for company in companies %}
 				<!-- Add this line to print the status value for each company -->
