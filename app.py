@@ -559,7 +559,7 @@ def adminRegister():
 def admin_dashboard():
     # Now, retrieve company data and pass it to the template
     cursor = db_conn.cursor()
-    cursor.execute("SELECT compID, compName, compStatus FROM company")
+    cursor.execute("SELECT * FROM company")
     companies = cursor.fetchall()
     cursor.close()
 
