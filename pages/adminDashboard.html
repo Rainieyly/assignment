@@ -90,23 +90,24 @@
 				</div>
 			</div>
 
-			{% set registeredCount = 0 %}
-			{% set pendingCount = 0 %}
-			{% set rejectedCount = 0 %}
-
-			{% for company in companies %}
-				{% if company[3] == 'APPROVED' %}
-					{% set registeredCount = registeredCount + 1 %}
-				{% elif company[3] == 'pending' %}
-					{% set pendingCount = pendingCount + 1 %}
-				{% elif company[3] == 'REJECTED' %}
-					{% set rejectedCount = rejectedCount + 1 %}
-				{% endif %}
-			{% endfor %}
-
 			<div class="box-container">
 				<div class="box box1">
 					<div class="text">
+
+						{% set registeredCount = 0 %}
+						{% set pendingCount = 0 %}
+						{% set rejectedCount = 0 %}
+
+						{% for company in companies %}
+							{% if company[3] == 'APPROVED' %}
+								{% set registeredCount = registeredCount + 1 %}
+							{% elif company[3] == 'pending' %}
+								{% set pendingCount = pendingCount + 1 %}
+							{% elif company[3] == 'REJECTED' %}
+								{% set rejectedCount = rejectedCount + 1 %}
+							{% endif %}
+						{% endfor %}
+			
 						<h2 class="topic-heading">{{ registeredCount }}</h2>
 						<h2 class="topic">Registered Companies</h2>
 					</div>
