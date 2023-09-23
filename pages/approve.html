@@ -99,15 +99,18 @@
                 <!-- List of companies to be approved -->
                 <ul>
 					{% for company in companies %}
+					<form method="POST" action="/approve_companies">
+    					<input type="hidden" name="compID" value="{{ company[0] }}">
 						{% if company[3] == 'pending' %}
                     <li>
                         <div class="company-info">
                             <h2>{{ company[1] }}</h2>
                             <p>{{ company[2] }}</p>
                         </div>
+					</form>
                         <div class="action-buttons">
-                            <button class="approve-button">Approve</button>
-							<button class="reject-button">Reject</button>
+                            <button class="approve-button" name="action" value="Approve">Approve</button>
+                    		<button class="reject-button" name="action" value="Rejecte">Reject</button>
                         </div>
                     </li>
 						{% endif %}
