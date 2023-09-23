@@ -215,8 +215,6 @@ def login():
             else:
                 return render_template('login.html', email_login_error="Email not found. Please register or try a different email.")
 
-    return render_template('login.html')
-
 
 @app.route("/studentDashboard", methods=['GET'])
 def studentDashboard():
