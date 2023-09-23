@@ -590,11 +590,6 @@ def adminRegister():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    # Now, retrieve company data and pass it to the template
-    cursor = db_conn.cursor()
-    cursor.close()
-
-    print(companies)
     return render_template('adminDashboard.html', companies=companies)
 
 @app.route('/approve_companies')
