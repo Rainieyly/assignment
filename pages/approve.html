@@ -98,12 +98,11 @@
                 <h1>Approve Companies</h1>
                 <!-- List of companies to be approved -->
                 <ul>
+					{% for company in companies %}
                     <li>
                         <div class="company-info">
-							{% for company in companies %}
                             <h2>{{ company[0] }}</h2>
                             <p>{{ company[1] }}</p>
-							{% endfor %}
                         </div>
                         <div class="action-buttons">
                             <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
@@ -112,34 +111,35 @@
                     </li>
                     <li>
                         <div class="company-info">
-                            <h2>Company Name 2</h2>
-                            <p>Company Email</p>
+                            <h2>{{ company[0] }}</h2>
+                            <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button">Approve</button>
-                            <button class="reject-button">Reject</button>
+                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
+                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
                         </div>
                     </li>
                     <li>
                         <div class="company-info">
-                            <h2>Company Name 3</h2>
-                            <p>Company Email</p>
+                            <h2>{{ company[0] }}</h2>
+                            <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button">Approve</button>
-                            <button class="reject-button">Reject</button>
+                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
+                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
                         </div>
                     </li>
                     <li>
                         <div class="company-info">
-                            <h2>Company Name 4</h2>
-                            <p>Company Email</p>
+                            <h2>{{ company[0] }}</h2>
+                            <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button">Approve</button>
-                            <button class="reject-button">Reject</button>
+                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
+                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
                         </div>
                     </li>
+					{% endfor %}
                 </ul>
             </section>
 
