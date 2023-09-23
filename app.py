@@ -625,6 +625,8 @@ def approve_company():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+    return render_template('approve.html')
+
 
 @app.route('/reject_company', methods=['POST'])
 def reject_company():
@@ -646,6 +648,8 @@ def reject_company():
             return jsonify({"message": "Company rejected successfully"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+    return render_template('approve.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
