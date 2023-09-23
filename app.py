@@ -636,7 +636,18 @@ def list_companies():
 
 @app.route('/user_management')
 def user_management():
-    return render_template('userManagement.html')
+    if request.method == 'POST':
+        print('a')
+
+    # Now, retrieve company data and pass it to the template
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT * FROM students")
+    student_data = cursor.fetchall()
+    cursor.close()
+
+    print(student_data)
+
+    return render_template('userManagement.html', student_data=student_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
