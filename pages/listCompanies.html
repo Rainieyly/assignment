@@ -93,44 +93,16 @@
 			</div>
 
             <h1>List of Approved Companies</h1>
-        <div class="company-list">
-            <div class="company">
-                <h2>Company Name 1</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
+            <div class="company-list">
+                {% for company in companies %}
+                    {% if company[3] == 'Approved' %}
+                        <div class="company">
+                            <h2>{{ company[1] }}</h2>
+                            <p>Email: {{ company[2] }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <div class="company">
-                <h2>Company Name 2</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
-            </div>
-            <div class="company">
-                <h2>Company Name 3</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
-            </div>
-            <div class="company">
-                <h2>Company Name 4</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
-            </div>
-            <div class="company">
-                <h2>Company Name 5</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
-            </div>
-            <div class="company">
-                <h2>Company Name 6</h2>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Location: City, Country</p>
-                <p>Contact: contact@example.com</p>
-            </div>
-        </div>
 
 		</div>
 	</div>
