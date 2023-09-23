@@ -596,11 +596,6 @@ def admin_dashboard():
     print(companies)
     return render_template('adminDashboard.html', companies=companies)
 
-
-@app.route('/approve_companies')
-def approve_companies():
-    return render_template('approve.html')
-
 @app.route('/list_companies')
 def list_companies():
     return render_template('listCompanies.html')
@@ -609,7 +604,7 @@ def list_companies():
 def user_management():
     return render_template('userManagement.html')
 
-@app.route('/approve-company', methods=['POST'])
+@app.route('/approve_company', methods=['POST'])
 def approve_company():
     data = request.json  # Assuming you send JSON data with company_name
 
@@ -631,7 +626,7 @@ def approve_company():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/reject-company', methods=['POST'])
+@app.route('/reject_company', methods=['POST'])
 def reject_company():
     data = request.json  # Assuming you send JSON data with company_name
 
