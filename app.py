@@ -610,9 +610,9 @@ def user_management():
 
 @app.route('/approve_company', methods=['POST'])
 def approve_company():
-    data = request.json  # Assuming you send JSON data with company_name
+    data = request.form  # Assuming you send form data with 'compName'
 
-    # Extract company_name from the request
+    # Extract the company name from the form data
     company_name = data.get('compName')
 
     if not company_name:
@@ -629,12 +629,11 @@ def approve_company():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 @app.route('/reject_company', methods=['POST'])
 def reject_company():
-    data = request.json  # Assuming you send JSON data with company_name
+    data = request.form  # Assuming you send form data with 'compName'
 
-    # Extract company_name from the request
+    # Extract the company name from the form data
     company_name = data.get('compName')
 
     if not company_name:
@@ -650,8 +649,6 @@ def reject_company():
             return jsonify({"message": "Company rejected successfully"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

@@ -105,8 +105,9 @@
                             <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
-                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
+                            <button class="approve-button" data-company-name="{{ company[0] }}">Approve</button>
+							<button class="reject-button" data-company-name="{{ company[0] }}">Reject</button>
+
                         </div>
                     </li>
                     <li>
@@ -115,8 +116,8 @@
                             <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
-                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
+                            <button class="approve-button" data-company-name="{{ company[0] }}">Approve</button>
+							<button class="reject-button" data-company-name="{{ company[0] }}">Reject</button>
                         </div>
                     </li>
                     <li>
@@ -125,8 +126,8 @@
                             <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
-                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
+                            <button class="approve-button" data-company-name="{{ company[0] }}">Approve</button>
+							<button class="reject-button" data-company-name="{{ company[0] }}">Reject</button>
                         </div>
                     </li>
                     <li>
@@ -135,8 +136,8 @@
                             <p>{{ company[1] }}</p>
                         </div>
                         <div class="action-buttons">
-                            <button class="approve-button" href="{{url_for('approve_company')}}">Approve</button>
-                            <button class="reject-button" href="{{url_for('reject_company')}}">Reject</button>
+                            <button class="approve-button" data-company-name="{{ company[0] }}">Approve</button>
+							<button class="reject-button" data-company-name="{{ company[0] }}">Reject</button>
                         </div>
                     </li>
 					{% endfor %}
