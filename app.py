@@ -603,6 +603,11 @@ def approve_companies():
 
 @app.route('/list_companies')
 def list_companies():
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
+    companies = cursor.fetchall()
+    cursor.close()
+    
     return render_template('listCompanies.html', companies=companies)
 
 @app.route('/user_management')
