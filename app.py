@@ -603,7 +603,7 @@ def approve_companies():
 
 @app.route('/list_companies')
 def list_companies():
-    return render_template('listCompanies.html')
+    return render_template('listCompanies.html', companies=companies)
 
 @app.route('/user_management')
 def user_management():
