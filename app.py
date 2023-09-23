@@ -622,7 +622,7 @@ def approve_company():
     try:
         with db_conn.cursor() as cursor:
             # Update the company's status to 'approved' in the database based on company name
-            update_query = "UPDATE company SET compStatus = 'approved' WHERE compName = %s"
+            update_query = "UPDATE company SET compStatus = 'Approved' WHERE compName = %s"
             cursor.execute(update_query, (company_name,))
             db_conn.commit()
 
@@ -644,7 +644,7 @@ def reject_company():
     try:
         with db_conn.cursor() as cursor:
             # Update the company's status to 'rejected' in the database based on company name
-            update_query = "UPDATE company SET compStatus = 'rejected' WHERE compName = %s"
+            update_query = "UPDATE company SET compStatus = 'Rejected' WHERE compName = %s"
             cursor.execute(update_query, (company_name,))
             db_conn.commit()
 
