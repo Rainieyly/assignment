@@ -42,32 +42,33 @@
     padding: 20px;
 }
 
-/* Styles for the report topic headings */
+/* Apply styles to the table header (Company ID, Company Name, Status) */
 .report-topic-heading {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.t-op {
+    background-color: #f0f0f0;
+    padding: 10px;
     font-weight: bold;
 }
 
-/* Styles for the report items */
-.report-items {
-    margin-top: 20px;
-}
-
+/* Style each company row (Company ID, Company Name, Status) */
 .report-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
+    padding: 10px;
     border-bottom: 1px solid #ccc;
 }
 
-/* Add more custom styles as needed */
+/* Apply alternate background color to every other row for better readability */
+.report-item:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* Add some spacing and formatting to the Company ID, Company Name, and Status columns */
+.t-op {
+    flex: 1; /* Equal width for all columns */
+    text-align: center;
+}
 
 /* Responsive design for small screens */
 @media (max-width: 768px) {
