@@ -599,7 +599,12 @@ def admin_dashboard():
 
 @app.route('/approve_companies')
 def approve_companies():
-    return render_template('approve.html')
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
+    companies = cursor.fetchall()
+    cursor.close()
+
+    return render_template('approve.html', companies=companies)
 
 @app.route('/list_companies')
 def list_companies():
@@ -607,7 +612,7 @@ def list_companies():
     cursor.execute("SELECT compID, compName, compEmail, compStatus FROM company")
     companies = cursor.fetchall()
     cursor.close()
-    
+
     return render_template('listCompanies.html', companies=companies)
 
 @app.route('/user_management')
