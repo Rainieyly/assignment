@@ -89,17 +89,18 @@
 						class="icn srchicn" alt="search-button">
 				</div>
 			</div>
-			{% set registeredCount = 0 %}
-			{% set pendingCount = 0 %}
-			{% set rejectedCount = 0 %}
+
+			{% set registeredCount=0 %}
+			{% set pendingCount=0 %}
+			{% set rejectedCount=0 %}
 
 			{% for company in companies %}
 				{% if company[3] == 'APPROVED' %}
-					{% set registeredCount = registeredCount + 1 %}
+					{% set registeredCount = registeredCount+1 %}
 				{% elif company[3] == 'pending' %}
-					{% set pendingCount = pendingCount + 1 %}
+					{% set pendingCount = pendingCount+1 %}
 				{% elif company[3] == 'REJECTED' %}
-					{% set rejectedCount = rejectedCount + 1 %}
+					{% set rejectedCount = rejectedCount+1 %}
 				{% endif %}
 			{% endfor %}
 
