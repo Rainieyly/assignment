@@ -590,7 +590,7 @@ def adminRegister():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    return render_template('adminDashboard.html', companies=companies)
+    return render_template('adminDashboard.html')
 
 @app.route('/approve_companies')
 def approve_companies():
