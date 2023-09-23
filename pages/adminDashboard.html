@@ -96,7 +96,7 @@
 			{% for company in companies %}
 				{% if company[3] == 'APPROVED' %}
 					{% set registeredCount = registeredCount + 1 %}
-				{% elif company[3] == 'PENDING' %}
+				{% elif company[3] == 'pending' %}
 					{% set pendingCount = pendingCount + 1 %}
 				{% elif company[3] == 'REJECTED' %}
 					{% set rejectedCount = rejectedCount + 1 %}
