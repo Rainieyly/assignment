@@ -40,6 +40,19 @@
 		input[type="text"]:disabled {
 			background-color: white;
 		}
+
+		.flex-container {
+			display: flex;
+			/* Use Flexbox layout */
+			align-items: center;
+			/* Vertically center the content */
+		}
+
+		/* Adjust margin or spacing as needed */
+		.nav-img {
+			margin-right: 10px;
+			/* Add some spacing between the image and text */
+		}
 	</style>
 </head>
 
@@ -48,18 +61,9 @@
 	<!-- for header part -->
 	<header>
 
-		<div class="logosec">
-			<div class="logo">Job Flnder</div>
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-				class="icn menuicn" id="menuicn" alt="menu-icon">
-		</div>
-
-		<div class="searchbar">
-			<input type="text" placeholder="Search">
-			<div class="searchbtn">
-				<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-					class="icn srchicn" alt="search-icon">
-			</div>
+		<div class="logo" style="margin-top:15px;">
+			<a href="{{ url_for('admin_dashboard') }}"><img src="{{ url_for('static', filename='img/logo/logo.png') }}"
+					alt=""></a>
 		</div>
 
 		<div class="message">
@@ -95,15 +99,24 @@
 						<h3><a href="{{ url_for('list_companies') }}">List of Approved Companies</a></h3>
 					</div>
 
-					<div class="nav-option option1">
-						<img src="../static/img/user-management-icon.png" class="nav-img" alt="articles">
-						<h3><a style="color: white;" href="{{ url_for('user_management') }}">User Management</a></h3>
+					<div class="nav-option option4">
+						<img src="../static/img/user-management-icon.png" class="nav-img" alt="user-management">
+						<h3><a href="{{ url_for('user_management') }}">Student Management</a></h3>
+					</div>
+
+					<div class="nav-option option4">
+						<img src="../static/img/user-management-icon.png" class="nav-img" alt="user-management">
+						<h3><a href="{{ url_for('lecturerManagement') }}">Lecturer Management</a></h3>
 					</div>
 
 					<div class="nav-option logout">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-							class="nav-img" alt="logout">
-						<h3>Logout</h3>
+						<a href="{{ url_for('logout') }}">
+							<div class="flex-container">
+								<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+									class="nav-img" alt="logout">
+								<h3 style="margin-left: 15px">Logout</h3>
+							</div>
+						</a>
 					</div>
 
 				</div>
@@ -114,24 +127,36 @@
 			<h1>Student Management</h1>
 			{% for studData in student_data %}
 			<!-- User List -->
-			<h5 class="mt-5">{{ studData[1] ~ ' ' ~ studData[2] }}</h5>
+			<div class="row">
+				<div class="col-11">
+					<h5 class="mt-5">{{ studData[0] }}</h5>
+				</div>
+				<div class="col-1">
+					<form method="POST" action="/studentManagementDelete" class="mt-4">
+						<input type="hidden" name="studentID" value="{{ studData[0] }}">
+						<button class="delete-button">Delete</button>
+					</form>
+				</div>
+			</div>
 			<div class="user-list">
 				<div class="user">
-					<form id="profileForm" method="POST" action="/studentProfilePersonal">
+					<form class="profileForm" method="POST" action="/user_management">
+						<!-- Add a hidden input field for student ID -->
+						<input type="hidden" class="student-id-input" name="studID" value="{{ studData[0] }}">
 						<div class="row">
 							<div class="col-2">
-								<p class="mb-0">Student ID: </p>
+								<p class="mb-0">Student Name: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="studID" name="studID"
-									value="{{ studData[0] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="name" name="name"
+									value="{{ studData[1] ~ ' ' ~ studData[2] }}">
 							</div>
 							<div class="col-2">
 								<p class="mb-0">Email: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="email" name="email"
-									value="{{ studData[4] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="email" name="email"
+									value="{{ studData[4] }}">
 							</div>
 						</div>
 						<hr>
@@ -140,15 +165,15 @@
 								<p class="mb-0">NRIC No: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="nric" name="nric"
-									value="{{ studData[6] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="nric" name="nric"
+									value="{{ studData[6] }}">
 							</div>
 							<div class="col-2">
 								<p class="mb-0">Programme: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="programme"
-									name="programme" value="{{ studData[7] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="programme"
+									name="programme" value="{{ studData[7] }}">
 							</div>
 						</div>
 						<hr>
@@ -157,15 +182,15 @@
 								<p class="mb-0">Date-of-Birth: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="dob" name="dob"
-									value="{{ studData[12] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="dob" name="dob"
+									value="{{ studData[12] }}">
 							</div>
 							<div class="col-2">
 								<p class="mb-0">Tutorial Group: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="tutGroup" name="tutGroup"
-									value="{{ studData[8] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="tutGroup"
+									name="tutGroup" value="{{ studData[8] }}">
 							</div>
 						</div>
 						<hr>
@@ -174,15 +199,15 @@
 								<p class="mb-0">Mobile No.: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="contact" name="contact"
-									value="{{ studData[13] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="contact"
+									name="contact" value="{{ studData[13] }}">
 							</div>
 							<div class="col-2">
 								<p class="mb-0">CGPA: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="cgpa" name="cgpa"
-									value="{{ studData[9] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="cgpa" name="cgpa"
+									value="{{ studData[9] }}">
 							</div>
 						</div>
 						<hr>
@@ -191,15 +216,22 @@
 								<p class="mb-0">Home Address: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="homeAdd" name="homeAdd"
-									value="{{ studData[14] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="homeAdd"
+									name="homeAdd" value="{{ studData[14] }}">
 							</div>
 							<div class="col-2">
 								<p class="mb-0">UC Supervisor: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="ucSupervisor"
-									name="ucSupervisor" value="{{ studData[10] }}" disabled>
+								<select id="ucSupervisor" name="ucSupervisor"
+									class="custom-select form-control form-control-lg"
+									style="background-color: white; border: none; padding: 0px;">
+									<option value="{{ studData[10] ~ ', ' ~ studData[11] }}" selected>{{ studData[10] }}
+									</option>
+									{% for lecturer in lecturer_data %}
+									<option value="{{ lecturer[0] ~ ', ' ~ lecturer[1] }}">{{ lecturer[0] }}</option>
+									{% endfor %}
+								</select>
 							</div>
 						</div>
 						<hr>
@@ -208,15 +240,24 @@
 								<p class="mb-0">Correspondence Address: </p>
 							</div>
 							<div class="col-4">
-								<input type="text" class="text-muted" style="width: 100%;" id="CorrespondenceAdd"
-									name="CorrespondenceAdd" value="{{ studData[15] }}" disabled>
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="CorrespondenceAdd"
+									name="CorrespondenceAdd" value="{{ studData[15] }}">
+							</div>
+							<div class="col-2">
+								<p class="mb-0">Gender: </p>
+							</div>
+							<div class="col-4">
+								<input type="text" class="text-muted mt-2" style="width: 100%;" id="gender"
+									name="gender" value="{{ studData[3] }}">
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-12 text-center"> <!-- Center the button within a full-width column -->
+								<button id="saveButton" class="save-button">Save Change</button>
 							</div>
 						</div>
 					</form>
-					<hr>
-					<button id="editButton">Edit</button>
-					<button class="delete-button">Delete</button>
-					<button id="saveButton" class="float-end" disabled>Save Change</button>
 				</div>
 			</div>
 			{% endfor %}
@@ -224,88 +265,6 @@
 	</div>
 	<script src="../static/js/dashboard-index.js"></script>
 
-	<script>
-		const editButton = document.getElementById("editButton");
-		const studIDField = document.getElementById("studID");
-		const emailField = document.getElementById("email");
-		const nricField = document.getElementById("nric");
-		const programmeField = document.getElementById("programme");
-		const dobField = document.getElementById("dob");
-		const tutGroupField = document.getElementById("tutGroup");
-		const contactField = document.getElementById("contact");
-		const cgpaField = document.getElementById("cgpa");
-		const homeAddField = document.getElementById("homeAdd");
-		const ucSupervisorField = document.getElementById("ucSupervisor");
-		const CorrespondenceAddField = document.getElementById("CorrespondenceAdd");
-		const saveButton = document.getElementById("saveButton");
-		const profileForm = document.getElementById("profileForm");
-
-		editButton.addEventListener("click", function () {
-			if (editButton.textContent === "Edit") {
-				// Enable all input fields
-				studIDField.disabled = false;
-				emailField.disabled = false;
-				nricField.disabled = false;
-				programmeField.disabled = false;
-				dobField.disabled = false;
-				tutGroupField.disabled = false;
-				contactField.disabled = false;
-				cgpaField.disabled = false;
-				homeAddField.disabled = false;
-				ucSupervisorField.disabled = false;
-				CorrespondenceAddField.disabled = false;
-
-				// Change button text to "Cancel"
-				editButton.textContent = "Cancel";
-
-				// Enable the Save button
-				saveButton.disabled = false;
-			} else {
-				// Reset fields and disable them
-				studIDField.disabled = true;
-				emailField.disabled = true;
-				nricField.disabled = true;
-				programmeField.disabled = true;
-				dobField.disabled = true;
-				tutGroupField.disabled = true;
-				contactField.disabled = true;
-				cgpaField.disabled = true;
-				homeAddField.disabled = true;
-				ucSupervisorField.disabled = true;
-				CorrespondenceAddField.disabled = true;
-
-				// Change button text back to "Edit"
-				editButton.textContent = "Edit";
-
-				// Enable the Save button
-				saveButton.disabled = true;
-			}
-		});
-
-		saveButton.addEventListener("click", function () {
-			// Submit the form when the Save button is clicked
-			profileForm.submit();
-
-			// Disable all input fields
-			studIDField.disabled = true;
-			emailField.disabled = true;
-			nricField.disabled = true;
-			programmeField.disabled = true;
-			dobField.disabled = true;
-			tutGroupField.disabled = true;
-			contactField.disabled = true;
-			cgpaField.disabled = true;
-			homeAddField.disabled = true;
-			ucSupervisorField.disabled = true;
-			CorrespondenceAddField.disabled = true;
-
-			// Change button text back to "Edit"
-			editButton.textContent = "Edit";
-
-			// Enable the Save button
-			saveButton.disabled = true;
-		});
-	</script>
 </body>
 
 </html>
